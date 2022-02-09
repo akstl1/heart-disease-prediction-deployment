@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Heart Disease Model</title>
+  </head>
+  <body>
+    <h1> Heart Disease Model </h1>
+    <h4> Enter customer information and submit for likelihood of heart disease </h4>
+  </body>
+  
+  <!–– Forms ––>
+  <form action="{{ url_for('predict')}}"method="POST">
+  
+      <label for="Age">Age (18 - 120):</label>
+          <input type="number" id="age" name="age" min="18" max="120", required><br><br>
+        
+      <label for="Sex">Sex:</label>
+          <select id="sex" name="sex">
+              <option value=1>M</option>
+              <option value=0>F</option>
+          </select><br><br>
+  
+      <label for="chest_pain_type">Chest Pain Type (0-3):</label>
+          <input type="number" id="chest_pain_type" name="chest_pain_type" min="0" max="3", required><br><br>
+  
+      <label for="resting_blood_pressure">Resting Blood Pressure:</label>
+          <input type="number" id="resting_blood_pressure" name="resting_blood_pressure" min="1" max="500", required><br><br>
+        
+      <label for="serum_cholestoral">Serum Cholestoral:</label>
+          <input type="number" id="serum_cholestoral" name="serum_cholestoral" min="0" max="500", required><br><br>
+      
+      <label for="fasting_blood_sugar">Fasting Blood Sugar:</label>
+          <input type="number" id="fasting_blood_sugar" name="fasting_blood_sugar" min="0" max="1", required><br><br>
+  
+      <label for="resting_ecg">Resting ECG:</label>
+          <input type="number" id="resting_ecg" name="resting_ecg" min="0" max="2", required><br><br>
+  
+      <label for="max_hr">Maximum Heart Rate Achieved:</label>
+          <input type="number" id="max_hr" name="max_hr" min="0" max="400", required><br><br>
+  
+      <label for="exercise_induced_angina">Exercise Induced Angina:</label>
+          <input type="number" id="exercise_induced_angina" name="exercise_induced_angina" min="0" max="1", required><br><br>
+  
+      <label for="oldpeak">Oldpeak:</label>
+         <input type="number" id="oldpeak" name="oldpeak" min="0" max="2", required><br><br>
+  
+      <label for="slope">Slope:</label>
+         <input type="number" id="slope" name="slope" min="0" max="2", required><br><br>
+  
+      <label for="ca">ca (0-4):</label>
+          <input type="number" id="ca" name="ca" min="0" max="4", required><br><br>
+  
+      <label for="thal">thal (0-3):</label>
+          <input type="number" id="thal" name="thal" min="0" max="3", required><br><br>
+          
+      <button type="submit" name="submit">Submit for Prediction</button>
+        
+      <input type="reset" value="Reset" />
+  </form>
+
+<!–– Results Text ––>
+<body>
+    <h2> Results </h2>
+    <p> Based on these customer attributes, our model predicts a heart disease probability of <b>{{ prediction_text }}</b>  </p>
+  </body>
+  
+</html>
