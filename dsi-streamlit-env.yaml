@@ -1,0 +1,12 @@
+name: dsi-streamlit-web-app
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - spyder=5.1.5
+  - scikit-learn=1.0.1
+  - pandas=1.4.4
+  - pip=22.2.2
+  - pip:
+    - streamlit==0.76.0
+    - protobuf==3.14.0
